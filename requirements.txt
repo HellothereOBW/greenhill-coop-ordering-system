@@ -1,0 +1,22 @@
+Flask==3.0.0
+Flask-SQLAlchemy==3.1.1
+psycopg2-binary==2.9.9
+python-dotenv==1.0.0
+pytest==7.4.3
+EO
+cat > deploy.sh << 'EOF'
+#!/bin/bash
+# Automated deployment script for Greenhill Co-op Ordering System
+
+echo "Starting deployment..."
+
+# Pull latest changes from main branch
+git pull origin main
+
+# Install Python dependencies
+pip install -r requirements.txt
+
+# Run all tests before deployment
+pytest tests/
+
+echo "Deployment complete."
