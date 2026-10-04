@@ -26,3 +26,5 @@ class Product:
     def __repr__(self):
         """Return a string representation of the product."""
         return f"<Product {self.name}: ${self.price}/{self.pricing_type}>"
+# Product catalogue feature added by Xuan Xie# Product catalog feature
+# Product catalog feature
