@@ -1,15 +1,7 @@
-#!/bin/bash
-# Automated deployment script for Greenhill Co-op Ordering System
-
-echo "Starting deployment..."
-
-# Pull latest changes from main branch
-git pull origin main
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Run all tests before deployment
-pytest tests/
-
-echo "Deployment complete."
+#!/usr/bin/env bash
+# Validate and run the local demo. Not a production deployment script.
+set -euo pipefail
+cd "$(dirname "$0")"
+python -m pip install -r requirements.txt
+python -m pytest -q
+exec python -m flask --app app run --host 127.0.0.1
